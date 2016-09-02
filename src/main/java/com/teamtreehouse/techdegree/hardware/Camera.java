@@ -5,7 +5,7 @@ import com.example.accessory.Accessory;
 import java.util.Observable;
 import java.util.Observer;
 
-class Camera implements Observer {
+class Camera implements Accessory {
 
     private void snapPhotos(int numberOfPhotos) {
         for (int i = 0; i < numberOfPhotos; i++) {
@@ -15,6 +15,11 @@ class Camera implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        activate();
+    }
+
+    @Override
+    public void activate() {
         snapPhotos(5);
     }
 }
